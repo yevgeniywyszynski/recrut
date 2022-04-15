@@ -1,5 +1,5 @@
-import { applyMiddleware, combiReducers, createStore, compose } from "redux";
-import allFilesRedux from './AllFilesRedux';
+import { applyMiddleware, combineReducers, createStore, compose } from "redux";
+import AllFilesRedux from './AllFilesRedux';
 import thunk from 'redux-thunk';
 
 const initialState = {
@@ -7,10 +7,10 @@ const initialState = {
 }
 
 const reducers = {
-    allFiles: allFilesRedux,
+    allFiles: AllFilesRedux,
 }
 
-const storeReducer = combiReducers(reducers);
+const storeReducer = combineReducers(reducers);
 
 const store = createStore (
     storeReducer,
