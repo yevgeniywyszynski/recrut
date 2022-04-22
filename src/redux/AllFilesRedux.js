@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+export const getAllFiles = ({allFiles}) => allFiles.data;
+
+
 const reducerName = 'files';
 
 const createActionName = name => `app/${reducerName}/${name}`;
@@ -16,13 +19,13 @@ export const errorRequest = payload => ({payload, type: ERROR_REQUEST});
 
 export const loadAllFiles = payload => ({payload, type: LOAD_ALLFILES});
 
-export const loadAllFilesRequest = () => {
+export const loadAllFilesRequest = (id) => {
     return async dispatch => {
         dispatch(startRequest());
 
         try {
-            let allFiles = await axios.get('https://fnp5vd20r2.execute-api.us-east-1.amazonaws.com/dev/directories');
-            dispatch(loadAllFiles(allFiles))
+            let allFiles = await axios.get('https://fnp5vd20r2.execute-api.us-east-1.amazonaws.com/dev/directories/' +  (id === 'root'? '' : id));
+            dispatch(loadAllFiles(allFiles.data))
             dispatch(endRequest())
         } catch(e) {
             dispatch(errorRequest({name: 'ERROR_REQUEST', error: 'could not fetch data'}));

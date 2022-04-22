@@ -1,0 +1,17 @@
+body {
+   background-color: #282C34;
+   color: #fff;
+}
+
+.filesWrapper{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 40px 20px;
+    padding: 30px;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.md-40 {
+    font-size: 40px;
+}

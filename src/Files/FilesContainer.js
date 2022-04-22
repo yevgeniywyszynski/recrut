@@ -1,10 +1,14 @@
 import { connect } from "react-redux";
 import Files from './Files';
-import { loadAllFilesRequest } from "../redux/AllFilesRedux";
+import { getAllFiles, loadAllFilesRequest } from "../redux/AllFilesRedux";
 
-const mapDispatchToProps = dispatch => ({
-   loadAllFilesRequest: () => dispatch(loadAllFilesRequest()),
+const mapStateToProps = state => ({
+    reduxAllFiles: getAllFiles(state)
 })
 
-export default connect(null, mapDispatchToProps) (Files);
+const mapDispatchToProps = dispatch => ({
+   loadAllFilesRequest: (id) => dispatch(loadAllFilesRequest(id)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps) (Files);
 

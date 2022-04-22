@@ -1,0 +1,17 @@
+.fileItem{
+    overflow: hidden;
+    text-align: center;
+}
+
+.fileWrapper{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.fileIcon{
+    font-size: 32px;
+}
